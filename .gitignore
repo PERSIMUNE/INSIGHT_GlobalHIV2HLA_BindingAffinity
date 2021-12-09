@@ -1,0 +1,14 @@
+
+.Rproj.user/
+
+.RData
+
+.Rhistory
+
+data/
+
+*.Rproj
+
+rsconnect/
+
+R/credentials.R
