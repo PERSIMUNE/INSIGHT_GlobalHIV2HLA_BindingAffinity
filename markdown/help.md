@@ -1,6 +1,8 @@
-### <span id="help-top">Welcome</span>
+## <span id="help-top">Help</span>
 
-Welcome to the companion app for Zucco et al., 2021, TITLE. You are free to explore and download the data (*see data disclaimer below*). We only ask that you cite the main paper if you find any of the results or insights useful. You may find the full reference in the About section available from the menu toward the top-left of the app.
+Welcome to the companion app for: Zucco, A.G. et al. (2022). Associations of functional Human Leucocyte Antigen (HLA) class I nodes to HIV viral load in a heterogeneous cohort.
+
+You are free to explore and download the data (*see data disclaimer below*). We only ask that you cite the main paper if you find any of the results or provided data elements useful. You may find the full reference in the About section available from the menu toward the top-left of the app.
 
 You may close this panel at any time by clicking on the <span style="color: green;">green **question**</span> icon <img src="./help/greenquestion.jpg" height="30px" /> in this menu group <img src="./help/menu.jpg" height="30px" /> toward the top left of the map.
 
@@ -8,21 +10,17 @@ You may close this panel at any time by clicking on the <span style="color: gree
 
 This help panel will guide you through the following topics:
 
-1. [About](#help-about)
-2. [Data disclaimer and download](#help-disclaimer)
-2. [App navigation](#help-navigation)
-3. [Map settings](#help-settings)
-4. [Available plots](#help-plots)
-5. [Additional resources](#help-resources)
-6. [License](#help-license)
+- [<span id="help-top">Help</span>](#help)
+  - [Contents](#contents)
+  - [<span id="help-disclaimer">Data disclaimer and download</span>](#data-disclaimer-and-download)
+  - [<span id="help-navigation">App navigation</span>](#app-navigation)
+  - [<span id="help-settings">Map settings</span>](#map-settings)
+  - [<span id="help-plots">Available plots</span>](#available-plots)
 
-### <span id="help-about">About</span>
-
-INSERT BRIEF ABSTRACT
 
 ### <span id="help-disclaimer">Data disclaimer and download</span>
 
-This app only allows you to explore a portion of the published data. Specifically, it is the portion of all peptides where there is at least one imputed HLA allele that might bind it. Also, some countries have HIV samples (and therefore peptides) but no imputed HLA haplotypes. We have therefore not exposed data from these countries in this app. However, when you download data from this resource you ARE downloading ALL available data from the publication. To download data click the <span style="color: red;">red **gear**</span> icon <img src="./help/redgear.jpg" height="30px" /> in the menu group <img src="./help/menu.jpg" height="30px" />).
+This app only allows you to explore a portion of the published data. Specifically, it is the portion of all peptides where there is at least one imputed HLA class I allele that might bind it. Also, some countries have HIV samples (and therefore peptides) but no imputed HLA haplotypes. We have therefore not exposed data from these countries in this app. However, when you download data from this resource you ARE downloading ALL available data from the publication. To download data click the <span style="color: red;">red **gear**</span> icon <img src="./help/redgear.jpg" height="30px" /> in the menu group <img src="./help/menu.jpg" height="30px" />).
 
 ### <span id="help-navigation">App navigation</span>
 <div style="text-align: right"><i><a href="#help-top">top</a></i></div>
@@ -55,23 +53,10 @@ To view plots click on the <span style="color: blue;">blue **graph**</span> icon
 1. **HIV subtypes** - On by default. The HIV view provides HIV subtype frequencies for the selected geography.
 2. **HLA alleles** - Off by default. The HLA view provides HLA imputation frequencies for the selected geography.
 3. **Binding affinity** - Off by default. The BIND view provides predicted (HLA)allele:peptide(HIV) binding frequencies. These frequencies are binned into three categories relative to the selected geography:
-  1. **Inactive** - The number of *globally sampled* peptides for which no imputed alleles *within* the geography were predicted to bind.
-  2. **Exogenous** - The number of *globally sampled* peptides for which *at least one* imputed allele *within* the geography was predicted to bind.
-  3. **Endogenous** - The number of *locally sampled* peptides for which *at least one* imputed allele *within* the geography was predicted to bind.
-  4. **NOTE**: The sum of these are the same across geographies and it is only their proportions that will change.
+   1. **Inactive** - The number of *globally sampled* peptides for which no imputed alleles *within* the geography were predicted to bind.
+   2. **Exogenous** - The number of *globally sampled* peptides for which *at least one* imputed allele *within* the geography was predicted to bind.
+   3. **Endogenous** - The number of *locally sampled* peptides for which *at least one* imputed allele *within* the geography was predicted to bind.
+   
+   > **NOTE**: The sum of these are the same across geographies and it is only their proportions that will change.
 4. **Detailed binding** - Off by default. View by first turning the simple *binding affinity* view on. This view presents endogenously binding peptides for the selected geography by their amino acid position for structural (gag, pol, env), essential (tat, rev), and accessory (nef, vpr, vif, vpu, asp) HIV proteins.
 5. **Functional HLA clustering** - Off by default. Shows a dendogram for all HLA alleles based on their predicted binding affinities to 173,792 HIV peptides.
-
-### <span id="help-resources">Additional resources</span>
-<div style="text-align: right"><i><a href="#help-top">top</a></i></div>
-
-Please refer to the following additional resources that may be of interest:
-
-1. [link]() - Resource name, description
-2. [link]() - Resource name, description
-3. [link]() - Resource name, description
-
-### <span id="help-license">License</span>
-<div style="text-align: right"><i><a href="#help-top">top</a></i></div>
-
-Please refer to the about panel for terms of use and licensing. To summarize, this work is completely free and open for academic use and furthering research in human immunoogy and infectious disease; provided full attribution is given.

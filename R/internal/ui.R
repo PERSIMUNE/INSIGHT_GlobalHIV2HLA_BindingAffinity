@@ -21,6 +21,12 @@ shiny::navbarPage(
                shiny::tags$div(id = "cite", 'Data compiled by Zucco et al., 2019.'),
     )     
   ),
+  shiny::tabPanel("Functional HLA clustering", id = "tabSetFunc",
+                  #- About, cite, etc.
+                  # TODO include treePanel from panels.R ? when clicking similar to clicking zoom
+                  shiny::includeMarkdown("./markdown/funclust.md"),
+                  shiny::br()
+  ),
   shiny::tabPanel("About", id = "tabSetAbout",
                   #- About, cite, etc.
                   shiny::includeMarkdown("./markdown/about.md"),
