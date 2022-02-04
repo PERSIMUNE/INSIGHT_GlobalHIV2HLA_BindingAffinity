@@ -16,20 +16,11 @@ shiny::navbarPage(
                
                mapdeck::mapdeckOutput(outputId = "myMap", width = "100%", height = "100%"),
                
-               mapSettingsPanel, helpBtn, plotBtn, mapInfoPanel, plotPanel, treePanel, helpPanel, 
+               mapSettingsPanel, helpBtn, plotBtn, mapInfoPanel, plotPanel, helpPanel, 
                
                shiny::tags$div(id = "cite", 'Data compiled by Zucco et al., 2019.'),
     )     
   ),
-  shiny::tabPanel("Functional HLA clustering", id = "tabSetFunc",
-                  #- About, cite, etc.
-                  # TODO include treePanel from panels.R ? when clicking similar to clicking zoom
-                  shiny::includeMarkdown("./markdown/funclust.md"),
-                  shiny::br()
-  ),
-  shiny::tabPanel("About", id = "tabSetAbout",
-                  #- About, cite, etc.
-                  shiny::includeMarkdown("./markdown/about.md"),
-                  shiny::br()
-  )
+  shiny::tabPanel("Functional HLA clustering", id = "tabSetFunc", treePanel),
+  shiny::tabPanel("About", id = "tabSetAbout", shiny::includeMarkdown("./markdown/about.md"))
 )

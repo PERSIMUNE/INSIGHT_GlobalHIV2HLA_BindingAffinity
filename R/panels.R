@@ -43,7 +43,6 @@ plotPanel <- pushbar::pushbar(
   shinyWidgets::materialSwitch("showHIV", label = "Show HIV subtypes", value = TRUE, status = "info", inline = TRUE),
   shinyWidgets::materialSwitch("showHLA", label = "HLA alleles", value = FALSE, status = "info", inline = TRUE),
   shinyWidgets::materialSwitch("showBIND", label = "Binding affinity", value = FALSE, status = "info", inline = TRUE),
-  shinyWidgets::materialSwitch("showTREE", label = "Functional HLA clustering", value = FALSE, status = "info", inline = TRUE),
   shiny::hr(),
   shiny::conditionalPanel("input.showHIV", shiny::div(id = "plotID_HIV", plotly::plotlyOutput("plotHIV", width = "100%") %>% mySpinner(), plotHIV.legend), shiny::hr()),
   shiny::conditionalPanel("input.showHLA", shiny::div(id = "plotID_HLA", plotly::plotlyOutput("plotHLA", width = "100%") %>% mySpinner(), plotHLA.legend), shiny::hr()),
@@ -90,46 +89,22 @@ plotPanel <- pushbar::pushbar(
     shiny::conditionalPanel('input.showDetailed.includes("asp")', plotlyOutput("plotPROT_Asp") %>% mySpinner()),
     shiny::hr()
   ),
-  # TODO move to tab
-  shiny::conditionalPanel(
-    "input.showTREE",
-    shiny::div(
-      id = "treeBIND",
-      shiny::fluidRow(
-        shiny::column(width = 4, shiny::tags$image(src = "./tree_small.png", width = "100%")),
-        shiny::column(
-          width = 5,
-          shiny::tags$p(shiny::h3("Dendrogram of 268 HLA class I alleles based on consensus clustering of predicted binding affinities to HIV peptides"), shiny::p("Predicted binding affinities to 173,792 HIV peptides were used to calculate the HLA allele distances used for consensus clustering and represented as a dendrogram through hierarchical clustering. Associations to log10(HIV-VL) of each node (HLA functional node) and leaves (HLA alleles) in the dendrogram were tested and adjusted by sex, self-reported race, and country. Associations were defined by an adjusted p-value (Benjamini-Hochberg) < 0.05 and are represented as thick branches for nodes and black triangles for leaves. White triangles indicate HLA alleles detected in our cohort. The effect of the respective associations is color-coded from protective effect (blue) to detrimental (red). On the outer ring, HLA allele counts are depicted as green bars."), shiny::p("Click 'Zoom' to open a large version of the dendogram. Click 'Interactive' to open a new tab to the version on iTOL.", style = "color: blue;")),
-          shinyWidgets::actionBttn("btnTreeZoom", label = "Zoom", icon = shiny::icon("search"), style = "jelly", color = "primary"),
-          shiny::tags$a(
-            shinyWidgets::actionBttn("btnTreeLink1", label = "Interactive", icon = shiny::icon("play"), style = "jelly", color = "primary"),
-            href = bindTreeURL, target = "_blank"
-          )
-        )
-      )
-    )
-  ),
   id = "plotPushbar",
   from = "right",
   style = "background:#fff;padding:60px;top:0;right:0;width:50%;max-width:100%;height:100%;min-height:100vh"
 )
 
-# TODO move to tab
-treePanel <- pushbar::pushbar(
+treePanel <- shiny::div(
   shiny::h3("Dendrogram of 268 HLA class I alleles based on consensus clustering of predicted binding affinities to HIV peptides"),
   shiny::p("Predicted binding affinities to 173,792 HIV peptides were used to calculate the HLA allele distances used for consensus clustering and represented as a dendrogram through hierarchical clustering. Associations to log10(HIV-VL) of each node (HLA functional node) and leaves (HLA alleles) in the dendrogram were tested and adjusted by sex, self-reported race, and country. Associations were defined by an adjusted p-value (Benjamini-Hochberg) < 0.05 and are represented as thick branches for nodes and black triangles for leaves. White triangles indicate HLA alleles detected in our cohort. The effect of the respective associations is color-coded from protective effect (blue) to detrimental (red). On the outer ring, HLA allele counts are depicted as green bars."),
   shiny::div(
-    shinyWidgets::actionBttn("btnTreeClose", label = "Close", icon = shiny::icon("stop"), style = "jelly", color = "danger"),
     shiny::tags$a(
-      shinyWidgets::actionBttn("btnTreeLink2", label = "Interactive", icon = shiny::icon("play"), style = "jelly", color = "primary"),
+      shinyWidgets::actionBttn("btnTreeLink2", label = "Launch interactive version", icon = shiny::icon("play"), style = "jelly", color = "primary"),
       href = bindTreeURL, target = "_blank"
     )
   ),
   shiny::hr(),
-  shiny::tags$image(src = "./tree.png", height = "80%"),
-  id = "treePushbar",
-  from = "left",
-  style = "background:#fff;padding:60px;top:0;right:0;width:100%;max-width:100%;height:100%;min-height:100vh"
+  shiny::tags$image(src = "./tree.png", width = "80%", style="display: block; margin-left: auto; margin-right: auto;"),
 )
 
 ## > Map Settings ----
