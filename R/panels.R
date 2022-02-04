@@ -195,16 +195,9 @@ mapSettingsPanel <- absolutePanel(
     ),
     # TODO insert link to files
     conditionalPanel("input.settings == 'DOWNLOAD'", shiny::div(
-      shiny::p(shiny::h4("HLA functional clusters - HIV peptides"), 
-      shinyWidgets::downloadBttn("data1", NULL, style = "simple", size = "xs"), 
-      "HLA hierarchical nodes based on consensus clustering of predicted binding affinities to HIV peptides.  ./data/HLA_nodes_HIV_peptides.tsv"),
-      shiny::p(shiny::h4("HLA functional clusters - Random peptides"), 
-      shinyWidgets::downloadBttn("data2", NULL, style = "simple", size = "xs"), 
-      "HLA hierarchical nodes based on consensus clustering of predicted binding affinities to random peptides from Uniprot  ./data/HLA_nodes_random_peptides.tsv")#,
-      ## This matrix might be too big but it would be nice to provide it
-      # shiny::p(shiny::h4("Predicted binding affinities - HIV peptides"), 
-      # shinyWidgets::downloadBttn("data3", NULL, style = "simple", size = "xs"), 
-      # "Predicted binding affinities of HLA alleles ./data/peptide_country_bindmatrix.rds ??? (not sure)")
+      shiny::p(shiny::h4(download_data1_title), download_data1_ui, download_data1_txt),
+      shiny::p(shiny::h4(download_data2_title), download_data2_ui, download_data2_txt),
+      shiny::p(shiny::h4(download_data3_title), download_data3_ui, download_data3_txt)
     ))
   )
 )

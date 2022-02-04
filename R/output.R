@@ -39,5 +39,9 @@ handleOutputs = function(output, rv) {
   output$plotPROT_Vif = renderPlotly({makeBindersPlot(protFilter = "Vif") %>% reduceInteraction()})
   output$plotPROT_Vpr = renderPlotly({makeBindersPlot(protFilter = "Vpr") %>% reduceInteraction()})
   
+  output$data1 = download_data1_srv
+  output$data2 = download_data2_srv
+  output$data3 = download_data3_srv
+  
   output
 }
